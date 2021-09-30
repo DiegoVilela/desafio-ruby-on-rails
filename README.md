@@ -16,7 +16,7 @@ Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quise
 Você recebeu um arquivo CNAB com os dados das movimentações finanaceira de várias lojas.
 Precisamos criar uma maneira para que estes dados sejam importados para um banco de dados.
 
-Sua tarefa é criar uma interface web que aceite upload do [arquivo FINANCEIRO](https://github.com/nuticseas/desafio-ruby-on-rails/FINANCEIRO.txt), normalize os dados e armazene-os em um banco de dados relacional e exiba essas informações em tela.
+Sua tarefa é criar uma interface web que aceite upload do [arquivo FINANCEIRO](https://github.com/nuticseas/desafio-ruby-on-rails/edit/main/FINANCEIRO.txt), normalize os dados e armazene-os em um banco de dados relacional e exiba essas informações em tela.
 
 **Sua aplicação web DEVE:**
 
