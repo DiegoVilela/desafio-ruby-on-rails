@@ -8,6 +8,9 @@ class Shop(models.Model):
     name = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f'{self.name} Dono: {self.owner}'
+
 
 class Transaction(models.Model):
     """Representa um registro financeiro."""
@@ -31,6 +34,9 @@ class Transaction(models.Model):
     date = models.DateField()
     value = models.IntegerField()
     cpf = models.IntegerField()
+    card = models.CharField(max_length=12)
     time = models.TimeField()
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.get_type_display()} {self.date} {self.time} {self.cpf}'
