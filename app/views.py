@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.shortcuts import render, get_object_or_404
 from .forms import UploadFileForm
 from .models import Transaction, Shop
 
@@ -48,5 +49,11 @@ def upload(request):
     })
 
 
-def shop_detail(request, id):
-    print(id)
+def shop_detail(request, shop_id):
+    shop = get_object_or_404(Shop, pk=shop_id)
+    transactions = Transaction.objects.filter(shop=shop)
+    paginator = Paginator(transactions, 20)
+    return render(request, 'shop_detail.html', {
+        'shop': shop,
+        'page_obj': paginator.get_page(request.GET.get('page'))
+    })

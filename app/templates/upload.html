@@ -10,50 +10,6 @@
   </form>
 
   {% if page_obj %}
-    <table>
-      <thead>
-        <tr>
-          <td>Tipo</td>
-          <td>Data</td>
-          <td>Valor</td>
-          <td>CPF</td>
-          <td>Cartão</td>
-          <td>Hora</td>
-          <td>Dono da loja</td>
-          <td>Nome da loja</td>
-        </tr>
-      </thead>
-      <tbody>
-        {% for transaction in page_obj %}
-        <tr>
-          <td>{{ transaction.get_type_display }}</td>
-          <td>{{ transaction.date }}</td>
-          <td>{{ transaction.value }}</td>
-          <td>{{ transaction.cpf }}</td>
-          <td>{{ transaction.card }}</td>
-          <td>{{ transaction.time }}</td>
-          <td>{{ transaction.shop.owner }}</td>
-          <td><a href="{% url 'shop_detail' transaction.shop.id %}">{{ transaction.shop.name }}</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <div class="pagination">
-      <span class="step-links">
-        {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-      </span>
-    </div>
+    {% include '_transactions_table.html' %}
   {% endif %}
 {% endblock %}

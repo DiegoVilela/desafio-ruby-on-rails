@@ -47,3 +47,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f'{self.get_type_display()} {self.date} {self.time} {self.cpf}'
+
+    class Meta:
+        ordering = ['date', 'time']
