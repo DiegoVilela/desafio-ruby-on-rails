@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .forms import UploadFileForm
 from .models import Transaction, Shop
 
@@ -25,6 +26,12 @@ def parse_line(line):
     )
 
 
+def get_page(number):
+    transactions = Transaction.objects.all()
+    paginator = Paginator(transactions, 20)
+    return paginator.get_page(number)
+
+
 def upload(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -32,7 +39,14 @@ def upload(request):
             uploaded_file = request.FILES['finance_file']
             for line in uploaded_file:
                 parse_line(line)
-
     else:
         form = UploadFileForm()
-    return render(request, 'upload.html', {'form': form})
+
+    return render(request, 'upload.html', {
+        'form': form,
+        'page_obj': get_page(request.GET.get('page')),
+    })
+
+
+def shop_detail(request, id):
+    print(id)

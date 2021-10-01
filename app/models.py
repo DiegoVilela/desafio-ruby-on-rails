@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
 
 
 class Shop(models.Model):
@@ -10,6 +11,12 @@ class Shop(models.Model):
 
     def __str__(self):
         return f'{self.name} Dono: {self.owner}'
+
+    def get_absolute_url(self):
+        return reverse('shop_detail', kwargs={'pk': self.pk})
+
+    class Meta:
+        ordering = ['name']
 
 
 class Transaction(models.Model):
