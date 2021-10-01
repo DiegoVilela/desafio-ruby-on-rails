@@ -39,7 +39,7 @@ class Transaction(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(9)],
     )
     date = models.DateField()
-    value = models.IntegerField()
+    value = models.DecimalField(max_digits=6, decimal_places=2)
     cpf = models.IntegerField()
     card = models.CharField(max_length=12)
     time = models.TimeField()

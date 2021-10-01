@@ -21,7 +21,7 @@ def parse_line(line):
     Transaction.objects.create(
         type=int(line[0:1]),
         date=datetime.strptime(line[1:9], '%Y%m%d').date(),
-        value=int(line[9:19]),
+        value=int(line[9:19]) / 100,
         cpf=int(line[19:30]),
         card=line[30:42],
         time=datetime.strptime(line[42:48], '%H%M%S').time(),
