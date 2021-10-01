@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
+from rest_framework import serializers, viewsets
 from .forms import UploadFileForm
 from .models import Transaction, Shop
 
@@ -67,3 +68,27 @@ def shop_detail(request, shop_id):
         'page_obj': paginator.get_page(request.GET.get('page')),
         'balance': balance,
     })
+
+
+class ShopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shop
+        fields = ('id', 'name', 'owner')
+
+
+class TransactionSerializer(serializers.ModelSerializer):
+    type = serializers.ChoiceField(choices=Transaction.TYPE)
+
+    class Meta:
+        model = Transaction
+        fields = ('id', 'type', 'date', 'value', 'cpf', 'card', 'time', 'shop')
+
+
+class ShopViewSet(viewsets.ModelViewSet):
+    serializer_class = ShopSerializer
+    queryset = Shop.objects.all()
+
+
+class TransactionViewSet(viewsets.ModelViewSet):
+    serializer_class = TransactionSerializer
+    queryset = Transaction.objects.all()

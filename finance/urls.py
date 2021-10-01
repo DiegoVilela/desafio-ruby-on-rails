@@ -15,8 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from rest_framework.documentation import include_docs_urls
+
+from app import views
 
 urlpatterns = [
     path('', include('app.urls')),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('docs/', include_docs_urls(title='Finance API'), name='api-docs'),
 ]
+
+router = routers.DefaultRouter()
+router.register('api/shops', views.ShopViewSet)
+router.register('api/transactions', views.TransactionViewSet)
+
+urlpatterns += router.urls
