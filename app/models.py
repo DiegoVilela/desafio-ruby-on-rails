@@ -6,14 +6,14 @@ from django.urls import reverse
 class Shop(models.Model):
     """Representa uma loja"""
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     owner = models.CharField(max_length=100)
 
     def __str__(self):
         return f'{self.name} Dono: {self.owner}'
 
     def get_absolute_url(self):
-        return reverse('shop_detail', kwargs={'pk': self.pk})
+        return reverse('shop_detail', kwargs={'shop_id': self.pk})
 
     class Meta:
         ordering = ['name']
@@ -28,7 +28,7 @@ class Transaction(models.Model):
         (3, 'Financiamento'),
         (4, 'Crédito'),
         (5, 'Recebimento Empréstimo'),
-        (6, 'Vebdas'),
+        (6, 'Vendas'),
         (7, 'Recebimento TED'),
         (8, 'Recebimento DOC'),
         (9, 'Aluguel'),

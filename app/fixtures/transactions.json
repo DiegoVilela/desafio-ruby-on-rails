@@ -1,0 +1,315 @@
+[
+{
+    "model": "app.shop",
+    "pk": 1,
+    "fields": {
+        "name": "BAR DO JOÃO",
+        "owner": "JOÃO MACEDO"
+    }
+},
+{
+    "model": "app.shop",
+    "pk": 2,
+    "fields": {
+        "name": "LOJA DO Ó - MATRIZ",
+        "owner": "MARIA JOSEFINA"
+    }
+},
+{
+    "model": "app.shop",
+    "pk": 3,
+    "fields": {
+        "name": "MERCADO DA AVENIDA",
+        "owner": "MARCOS PEREIRA"
+    }
+},
+{
+    "model": "app.shop",
+    "pk": 4,
+    "fields": {
+        "name": "MERCEARIA 3 IRMÃOS",
+        "owner": "JOSÉ COSTA"
+    }
+},
+{
+    "model": "app.shop",
+    "pk": 5,
+    "fields": {
+        "name": "LOJA DO Ó - FILIAL",
+        "owner": "MARIA JOSEFINA"
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 1,
+    "fields": {
+        "type": 3,
+        "date": "2019-03-01",
+        "value": "142.00",
+        "cpf": 9620676017,
+        "card": "4753****3153",
+        "time": "15:34:53",
+        "shop": 1
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 2,
+    "fields": {
+        "type": 5,
+        "date": "2019-03-01",
+        "value": "132.00",
+        "cpf": 55641815063,
+        "card": "3123****7687",
+        "time": "14:56:07",
+        "shop": 2
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 3,
+    "fields": {
+        "type": 3,
+        "date": "2019-03-01",
+        "value": "122.00",
+        "cpf": 84515254073,
+        "card": "6777****1313",
+        "time": "17:27:12",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 4,
+    "fields": {
+        "type": 2,
+        "date": "2019-03-01",
+        "value": "112.00",
+        "cpf": 9620676017,
+        "card": "3648****0099",
+        "time": "23:42:34",
+        "shop": 1
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 5,
+    "fields": {
+        "type": 1,
+        "date": "2019-03-01",
+        "value": "152.00",
+        "cpf": 9620676017,
+        "card": "1234****7890",
+        "time": "23:30:00",
+        "shop": 1
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 6,
+    "fields": {
+        "type": 2,
+        "date": "2019-03-01",
+        "value": "107.00",
+        "cpf": 84515254073,
+        "card": "8723****9987",
+        "time": "12:33:33",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 7,
+    "fields": {
+        "type": 2,
+        "date": "2019-03-01",
+        "value": "502.00",
+        "cpf": 84515254073,
+        "card": "8473****1231",
+        "time": "23:12:33",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 8,
+    "fields": {
+        "type": 3,
+        "date": "2019-03-01",
+        "value": "602.00",
+        "cpf": 23270298056,
+        "card": "6777****1313",
+        "time": "17:27:12",
+        "shop": 4
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 9,
+    "fields": {
+        "type": 1,
+        "date": "2019-03-01",
+        "value": "200.00",
+        "cpf": 55641815063,
+        "card": "1234****3324",
+        "time": "09:00:02",
+        "shop": 2
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 10,
+    "fields": {
+        "type": 5,
+        "date": "2019-03-01",
+        "value": "802.00",
+        "cpf": 84515254073,
+        "card": "3123****7687",
+        "time": "14:56:07",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 11,
+    "fields": {
+        "type": 2,
+        "date": "2019-03-01",
+        "value": "102.00",
+        "cpf": 23270298056,
+        "card": "8473****1231",
+        "time": "23:12:33",
+        "shop": 4
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 12,
+    "fields": {
+        "type": 3,
+        "date": "2019-03-01",
+        "value": "6102.00",
+        "cpf": 23270298056,
+        "card": "6777****1313",
+        "time": "17:27:12",
+        "shop": 4
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 13,
+    "fields": {
+        "type": 4,
+        "date": "2019-03-01",
+        "value": "152.32",
+        "cpf": 55641815063,
+        "card": "1234****6678",
+        "time": "10:00:00",
+        "shop": 5
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 14,
+    "fields": {
+        "type": 8,
+        "date": "2019-03-01",
+        "value": "102.03",
+        "cpf": 84515254073,
+        "card": "2344****1222",
+        "time": "12:32:22",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 15,
+    "fields": {
+        "type": 3,
+        "date": "2019-03-01",
+        "value": "103.00",
+        "cpf": 23270298056,
+        "card": "6777****1313",
+        "time": "17:27:12",
+        "shop": 4
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 16,
+    "fields": {
+        "type": 9,
+        "date": "2019-03-01",
+        "value": "102.00",
+        "cpf": 55641815063,
+        "card": "6228****9090",
+        "time": "00:00:00",
+        "shop": 2
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 17,
+    "fields": {
+        "type": 4,
+        "date": "2019-06-01",
+        "value": "506.17",
+        "cpf": 84515254073,
+        "card": "1234****2231",
+        "time": "10:00:00",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 18,
+    "fields": {
+        "type": 2,
+        "date": "2019-03-01",
+        "value": "109.00",
+        "cpf": 23270298056,
+        "card": "8723****9987",
+        "time": "12:33:33",
+        "shop": 4
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 19,
+    "fields": {
+        "type": 8,
+        "date": "2019-03-01",
+        "value": "2.00",
+        "cpf": 84515254073,
+        "card": "2344****1222",
+        "time": "12:32:22",
+        "shop": 3
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 20,
+    "fields": {
+        "type": 2,
+        "date": "2019-03-01",
+        "value": "5.00",
+        "cpf": 23270298056,
+        "card": "7677****8778",
+        "time": "14:18:08",
+        "shop": 4
+    }
+},
+{
+    "model": "app.transaction",
+    "pk": 21,
+    "fields": {
+        "type": 3,
+        "date": "2019-03-01",
+        "value": "192.00",
+        "cpf": 84515254073,
+        "card": "6777****1313",
+        "time": "17:27:12",
+        "shop": 3
+    }
+}
+]
