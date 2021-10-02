@@ -40,7 +40,7 @@ class Transaction(models.Model):
     )
     date = models.DateField()
     value = models.DecimalField(max_digits=6, decimal_places=2)
-    cpf = models.IntegerField()
+    cpf = models.CharField(max_length=11)
     card = models.CharField(max_length=12)
     time = models.TimeField()
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
