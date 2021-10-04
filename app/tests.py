@@ -1,4 +1,5 @@
 from datetime import date, time
+from decimal import Decimal
 
 from django.test import TestCase
 from django.db.utils import IntegrityError
@@ -87,13 +88,13 @@ class ShopViewTest(TestCase):
 
     def test_shop_detail_shows_correct_balance(self):
         response = self.client.get('/shop/1')
-        self.assertContains(response, 'Saldo em conta: R$ -102,00', count=1)
+        self.assertEqual(response.context['balance'], round(Decimal(-102.0), 2))
 
         response = self.client.get('/shop/3')
-        self.assertContains(response, 'Saldo em conta: R$ 489,20', count=1)
+        self.assertEqual(response.context['balance'], round(Decimal(489.2), 2))
 
         response = self.client.get('/shop/5')
-        self.assertContains(response, 'Saldo em conta: R$ 152,32', count=1)
+        self.assertEqual(response.context['balance'], round(Decimal(152.32), 2))
 
     def test_status_code_is_404_when_shop_does_not_exist(self):
         response = self.client.get('/shop/6')
