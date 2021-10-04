@@ -118,3 +118,77 @@ class UploadTest(TestCase):
             self.assertTrue(isinstance(page_obj, Page))
             self.assertEqual(len(page_obj), 20)
             self.assertTrue('shop' not in response.context)
+
+
+class ShopAPITest(TestCase):
+    """Testa os endpoints do model Shop"""
+
+    fixtures = ['transactions.json']
+
+    def test_getting_shop_list(self):
+        response = self.client.get('/api/shops', follow=True)
+        self.assertEqual(response.json()['count'], 5)
+
+    def test_getting_one_shop(self):
+        response = self.client.get('/api/shops/5', follow=True)
+        shop = response.json()
+        self.assertEqual(shop['name'], 'LOJA DO Ó - FILIAL')
+        self.assertEqual(shop['owner'], 'MARIA JOSEFINA')
+
+    def test_creating_shop(self):
+        response = self.client.post(
+            '/api/shops/',
+            data={'name': 'LOJA 6', 'owner': 'DONO DA LOJA 6'},
+            content_type='application/json',
+            follow=True,
+        )
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(
+            response.json(),
+            {'id': 6, 'name': 'LOJA 6', 'owner': 'DONO DA LOJA 6'}
+        )
+
+
+class TransactionAPITest(TestCase):
+    """Testa os endpoints do model Transaction"""
+
+    fixtures = ['transactions.json']
+
+    def test_getting_shop_list(self):
+        response = self.client.get('/api/transactions', follow=True)
+        self.assertEqual(response.json()['count'], 21)
+
+    def test_getting_one_shop(self):
+        response = self.client.get('/api/transactions/21', follow=True)
+        transaction = response.json()
+        self.assertEqual(transaction['cpf'], '84515254073')
+        self.assertEqual(transaction['value'], '192.00')
+
+    def test_creating_shop(self):
+        response = self.client.post(
+            '/api/transactions/',
+            data={
+                'card': '9777****1313',
+                'cpf': '74515254073',
+                'date': '2021-10-04',
+                'shop': 3,
+                'time': '17:52:07',
+                'type': 3,
+                'value': '1.00'},
+            content_type='application/json',
+            follow=True,
+        )
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(
+            response.json(),
+            {
+                'id': 22,
+                'card': '9777****1313',
+                'cpf': '74515254073',
+                'date': '2021-10-04',
+                'shop': 3,
+                'time': '17:52:07',
+                'type': 3,
+                'value': '1.00'
+            }
+        )
