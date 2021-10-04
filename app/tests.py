@@ -5,6 +5,8 @@ from django.test import TestCase
 from django.db.utils import IntegrityError
 from django.core.paginator import Page
 
+from finance.settings import BASE_DIR
+from .forms import UploadFileForm
 from .models import Shop, Transaction
 
 
@@ -99,3 +101,20 @@ class ShopViewTest(TestCase):
     def test_status_code_is_404_when_shop_does_not_exist(self):
         response = self.client.get('/shop/6')
         self.assertEqual(response.status_code, 404)
+
+
+class UploadTest(TestCase):
+    """Testa a view upload"""
+
+    def test_form_is_present(self):
+        response = self.client.get('/')
+        self.assertTrue(isinstance(response.context['form'], UploadFileForm))
+
+    def test_file_upload(self):
+        with open(BASE_DIR / 'FINANCEIRO.txt', 'rb') as fp:
+            response = self.client.post('/', {'finance_file': fp}, follow=True)
+            self.assertEqual(response.status_code, 200)
+            page_obj = response.context['page_obj']
+            self.assertTrue(isinstance(page_obj, Page))
+            self.assertEqual(len(page_obj), 20)
+            self.assertTrue('shop' not in response.context)
