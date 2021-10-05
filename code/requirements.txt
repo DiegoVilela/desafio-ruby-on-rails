@@ -4,3 +4,4 @@ markdown
 coreapi
 coverage
 psycopg2-binary
+gunicorn
