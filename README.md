@@ -99,7 +99,7 @@ Sucesso!
 5. Acesse o sistema:
 - Página inicial: http://localhost:8000/
 - Documentação da API: http://localhost:8000/docs
-- Visialização do endpoints:
+- Visualização do endpoints:
   - Lojas: http://localhost:8000/api/shops
   - Transações: http://localhost:8000/api/transactions
 
@@ -152,10 +152,14 @@ POSTGRES_DB=finance_prod
 8. Acesse o sistema:
 - Página inicial: http://localhost:1337/
 - Documentação da API: http://localhost:1337/docs
-- Visialização do endpoints:
+- Visualização do endpoints:
   - Lojas: http://localhost:1337/api/shops
   - Transações: http://localhost:1337/api/transactions
 
 ## Observações
 
+O ambiente de produção seria apenas para realização testes antes do deploy, onde seria provavelmente utilizado um serviço de banco de
+dados gerenciado como o RDS da AWS.
 
+Foi utilizado usuário _root_ nos containers _db_ e _nginx_, o que não é recomendado em
+produção.
