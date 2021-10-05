@@ -86,27 +86,24 @@ Sucesso!
 - `git clone git@github.com:DiegoVilela/desafio-ruby-on-rails.git`
 - `cd desafio-ruby-on-rails`
 
-2. Faça o checkout para a branch `container`:
-- `git checkout container`
-
-3. Inicialize os containers:
+2. Inicialize os containers:
 - `docker-compose up -d --build`
 
-4. Para executar os testes unitários e ver a porcentagem de cobertura:
+3. Para executar os testes unitários e ver a porcentagem de cobertura:
 - `docker-compose exec web coverage run --source='.' manage.py test`
 - `docker-compose exec web coverage report`
 
-5. Acesse o sistema:
+4. Acesse o sistema:
 - Página inicial: http://localhost:8000/
 - Documentação da API: http://localhost:8000/docs
 - Visualização do endpoints:
   - Lojas: http://localhost:8000/api/shops
   - Transações: http://localhost:8000/api/transactions
 
-6. (Opcional) Para verificar os logs execute:
+5. (Opcional) Para verificar os logs execute:
 - `docker-compose logs -f`
 
-7. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/code/FINANCEIRO.txt`.
+6. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/code/FINANCEIRO.txt`.
 
 ## Ambiente de produção
 
