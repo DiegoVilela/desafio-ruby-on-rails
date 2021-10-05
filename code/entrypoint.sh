@@ -12,7 +12,7 @@ then
 fi
 
 #  Reseta o banco de dados toda vez que o container é inicializado
-#python manage.py flush --no-input
-#python manage.py migrate
+python manage.py flush --no-input
+python manage.py migrate
 
 exec "$@"
