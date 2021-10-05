@@ -97,9 +97,65 @@ Sucesso!
 - `docker-compose exec web coverage report`
 
 5. Acesse o sistema:
-- http://localhost:8000/
+- Página inicial: http://localhost:8000/
+- Documentação da API: http://localhost:8000/docs
+- Visialização do endpoints:
+  - Lojas: http://localhost:8000/api/shops
+  - Transações: http://localhost:8000/api/transactions
 
 6. (Opcional) Para verificar os logs execute:
 - `docker-compose logs -f`
 
 7. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/code/FINANCEIRO.txt`.
+
+## Ambiente de produção
+
+1. Antes de subir o ambiente de produção, encerre o ambiente de desenvolvimento:
+- `docker-compose down -v`
+
+2. Crie os arquivos de configuração no diretório `desafio-ruby-on-rails`:
+- `.env.prod`:
+```
+DEBUG=0
+SECRET_KEY=change_me
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=finance_prod
+SQL_USER=finance_user
+SQL_PASSWORD=finance
+SQL_HOST=db
+SQL_PORT=5432
+DATABASE=postgres
+```
+- `.env.prod.db`:
+```
+POSTGRES_USER=finance_user
+POSTGRES_PASSWORD=finance
+POSTGRES_DB=finance_prod
+```
+
+3. Inicie o ambiente de produção:
+- `docker-compose -f docker-compose.prod.yml up -d --build`
+
+4. (Opcional) Verifica se os três containers (_nginx_, _web_ e _db_) estão rodando:
+- `docker ps`
+
+5. Execute as migrações do banco de dados:
+- `docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput`
+
+6. Colete os arquivos estáticos:
+- `docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear`
+
+7. Execute os testes unitários:
+- `docker-compose -f docker-compose.prod.yml exec web coverage run --source='.' manage.py test`
+
+8. Acesse o sistema:
+- Página inicial: http://localhost:1337/
+- Documentação da API: http://localhost:1337/docs
+- Visialização do endpoints:
+  - Lojas: http://localhost:1337/api/shops
+  - Transações: http://localhost:1337/api/transactions
+
+## Observações
+
+
