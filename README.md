@@ -77,3 +77,29 @@ Seu projeto será avaliado de acordo com os seguintes critérios.
 Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
 
 Sucesso!
+
+# Solução
+
+## Ambiente de desenvolvimento
+
+1. Clone o repositório do Github e vá para o diretório contendo a solução:
+- `git clone git@github.com:DiegoVilela/desafio-ruby-on-rails.git`
+- `cd desafio-ruby-on-rails`
+
+2. Faça o checkout para a branch `container`:
+- `git checkout container`
+
+3. Inicialize os containers:
+- `docker-compose up -d --build`
+
+4. Para executar os testes unitários e ver a porcentagem de cobertura:
+- `docker-compose exec web coverage run --source='.' manage.py test`
+- `docker-compose exec web coverage report`
+
+5. Acesse o sistema:
+- http://localhost:8000/
+
+6. (Opcional) Para verificar os logs execute:
+- `docker-compose logs -f`
+
+7. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/code/FINANCEIRO.txt`.
