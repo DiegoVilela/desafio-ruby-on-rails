@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :shops do
     resources :transactions
   end
+
+  get "/upload", to: "shops#upload"
+  post "/handle-upload", to: "shops#handle_upload"
 end

@@ -42,6 +42,11 @@ class ShopsController < ApplicationController
     redirect_to root_path
   end
 
+  def handle_upload
+    uploaded_file = params[:finance]
+    File.foreach(uploaded_file) { |line| puts line }
+  end
+
   private
     def shop_params
       params.require(:shop).permit(:name, :owner)
