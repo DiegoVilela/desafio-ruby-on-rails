@@ -7,6 +7,7 @@
       <td>CPF</td>
       <td>Cartão</td>
       <td>Hora</td>
+      <td>Ação</td>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
       <td><%= t.cpf %></td>
       <td><%= t.card %></td>
       <td><%= t.time %></td>
+      <td><%= link_to 'Deletar', [t.shop, t],
+        method: :delete,
+        data: { confirm: "Certeza?" } %></td>
     </tr>
     <% end %>
   </tbody>

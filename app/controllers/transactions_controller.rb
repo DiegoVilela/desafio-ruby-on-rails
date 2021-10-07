@@ -6,6 +6,10 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+    @shop = Shop.find(params[:shop_id])
+    @transaction = @shop.transactions.find(params[:id])
+    @transaction.destroy
+    redirect_to shop_path(@shop)
   end
 
   private
