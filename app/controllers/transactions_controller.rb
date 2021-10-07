@@ -1,22 +1,15 @@
 class TransactionsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
   def create
-  end
-
-  def edit
-  end
-
-  def update
+    @shop = Shop.find(params[:shop_id])
+    @transaction = @shop.transactions.create(transaction_params)
+    redirect_to shop_path(@shop)
   end
 
   def destroy
+  end
+
+  private
+  def transaction_params
+    params.require(:transaction).permit(:kind, :date, :value, :cpf, :card, :time)
   end
 end

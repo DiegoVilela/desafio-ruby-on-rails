@@ -1,0 +1,41 @@
+<%= form_with model: [ @shop, @shop.transactions.build ] do |form| %>
+  <table>
+    <tr>
+      <th>Tipo</th>
+      <td>
+        <%= form.select :kind, [
+          ['Débito', 1],
+          ['Boleto', 2],
+          ['Financiamento', 3],
+          ['Crédito', 4],
+          ['Recebimento Empréstimo', 5],
+          ['Vendas', 6],
+          ['Recebimento TED', 7],
+          ['Recebimento DOC', 8],
+          ['Aluguel', 9],
+        ] %>
+      </td>
+    </tr>
+    <tr>
+      <th>Data</th>
+      <td><%= form.date_select :date %></td>
+    </tr>
+    <tr>
+      <th>Valor</th>
+      <td><%= form.number_field :value, step: 0.1 %></td>
+    </tr>
+    <tr>
+      <th>CPF</th>
+      <td><%= form.text_field :cpf %></td>
+    </tr>
+    <tr>
+      <th>Cartão</th>
+      <td><%= form.text_field :card %></td>
+    </tr>
+    <tr>
+      <th>Hora</th>
+      <td><%= form.time_select :time %></td>
+    </tr>
+  </table>
+  <%= form.submit %>
+<% end %>
