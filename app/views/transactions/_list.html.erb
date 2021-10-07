@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <td>Tipo</td>
+      <td>Data</td>
+      <td>Valor</td>
+      <td>CPF</td>
+      <td>Cartão</td>
+      <td>Hora</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shop.transactions.each do |t| %>
+    <tr>
+      <td><%= t.kind %></td>
+      <td><%= t.date %></td>
+      <td><%= t.value %></td>
+      <td><%= t.cpf %></td>
+      <td><%= t.card %></td>
+      <td><%= t.time %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
