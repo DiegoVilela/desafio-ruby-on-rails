@@ -1,11 +1,19 @@
-<h1>Shops</h1>
+<h1>Finance Control</h1>
 
-<ul>
-  <% @shops.each do |shop| %>
-    <li>
-      <%= link_to shop.name, shop %>
-    </li>
-  <% end %>
-</ul>
+<%= form_with url: "/handle-upload", multipart: true do |form| %>
+  <%= form.file_field :finance %>
+  <%= form.submit %>
+<% end %>
 
+<% if !@shops.empty? %>
+  <h2>Shops</h2>
+  <ul>
+    <% @shops.each do |shop| %>
+      <li>
+        <%= link_to shop.name, shop %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<br>
 <%= link_to "New Shop", new_shop_path %>
