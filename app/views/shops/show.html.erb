@@ -3,5 +3,8 @@
 <h2><%= @shop.owner %></h2>
 
 <ul>
-  <li><%= link_to "Edit", edit_shop_path(@shop) %></li>
+  <li><%= link_to "Editar", edit_shop_path(@shop) %></li>
+  <li><%= link_to "Deletar", shop_path(@shop),
+                  method: :delete,
+                  data: { confirm: "Certeza?" } %></li>
 </ul>
