@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_125559) do
+ActiveRecord::Schema.define(version: 2021_10_07_142610) do
 
   create_table "shops", force: :cascade do |t|
     t.string "name", limit: 100
@@ -20,4 +20,18 @@ ActiveRecord::Schema.define(version: 2021_10_07_125559) do
     t.index ["name"], name: "index_shops_on_name", unique: true
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer "kind"
+    t.date "date"
+    t.decimal "value"
+    t.string "cpf", limit: 11
+    t.string "card", limit: 12
+    t.time "time"
+    t.integer "shop_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_transactions_on_shop_id"
+  end
+
+  add_foreign_key "transactions", "shops"
 end
