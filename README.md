@@ -98,11 +98,11 @@ Sucesso!
 5. Informe a senha do bando de dados via variável de ambiente do terminal:
 - `export FINANCE_PASSWORD="1234"`
 
-6. Execute os testes:
-- `bin/rails test:all`
-
-7. Execute a migração do banco de dados:
+6. Execute a migração do banco de dados:
 - `bin/rails db:migrate`
+
+7. Execute os testes:
+- `bin/rails test:all`
 
 8. Inicialize o servidor local de desenvolvimento:
 - `bin/rails server`
