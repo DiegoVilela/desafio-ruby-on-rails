@@ -2,7 +2,7 @@ require "test_helper"
 
 class TransactionsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get transactions_index_url
+    get shop_transactions
     assert_response :success
   end
 

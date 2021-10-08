@@ -7,7 +7,7 @@ one:
   cpf: MyString
   card: MyString
   time: 2021-10-07 11:26:10
-  shop: one
+  shop: rosies_shop
 
 two:
   kind: 1
@@ -16,4 +16,4 @@ two:
   cpf: MyString
   card: MyString
   time: 2021-10-07 11:26:10
-  shop: two
+  shop: rosies_shop
