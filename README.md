@@ -77,3 +77,31 @@ Seu projeto será avaliado de acordo com os seguintes critérios.
 Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
 
 Sucesso!
+
+# Solução
+
+## Ambiente de desenvolvimento
+
+1. Clone o repositório do Github e vá para o diretório contendo a solução:
+- `git clone git@github.com:DiegoVilela/desafio-ruby-on-rails.git`
+- `cd desafio-ruby-on-rails`
+
+2. Faça checkou para a branch contendo `rails`:
+- `git checkout rails`
+
+3. Inicialize o container do banco de dados:
+- `docker run -dp 5432:5432 -e POSTGRES_PASSWORD=1234 -e POSTGRES_USER=finance_user -e POSTGRES_DB=finance_dev postgres`
+
+4. Informe a senha do bando de dados via variável de ambiente do terminal:
+- `export FINANCE_PASSWORD="1234"`
+
+5. Execute a migração do banco de dados:
+- `bin/rails db:migrate`
+
+6. Inicialize o servidor local de desenvolvimento:
+- `bin/rails server`
+
+7. Acesse o sistema:
+- Página inicial: http://localhost:8000/
+
+6. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/FINANCEIRO.txt`.
