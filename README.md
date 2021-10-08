@@ -108,6 +108,6 @@ Sucesso!
 - `bin/rails server`
 
 9. Acesse o sistema:
-- Página inicial: http://localhost:8000/
+- Página inicial: http://localhost:3000/
 
 10. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/FINANCEIRO.txt`.
