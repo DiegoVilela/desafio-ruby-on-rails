@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_10_07_142610) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "shops", force: :cascade do |t|
     t.string "name", limit: 100
     t.string "owner", limit: 100
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_142610) do
     t.string "cpf", limit: 11
     t.string "card", limit: 12
     t.time "time"
-    t.integer "shop_id", null: false
+    t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_transactions_on_shop_id"
