@@ -1,38 +1,33 @@
 require "test_helper"
 
 class TransactionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get shop_transactions
+  test "should create a transaction" do
+    s = shops(:rosies_shop)
+    post "/shops/#{s.id}/transactions", params: {
+      transaction: {
+        kind: 9,
+        date: Date.current,
+        value: 78.21,
+        cpf: 12345678910,
+        card: "4985****2458",
+        time: Time.current,
+        shop_id: s.id,
+      }
+    }
+    assert_response :redirect
+    follow_redirect!
     assert_response :success
+    assert_select "h1", "Rosie's Shop"
+    assert_select "h2", "Rosie"
   end
 
-  test "should get show" do
-    get transactions_show_url
+  test "shoul delete a transaction" do
+    t = transactions(:one)
+    delete "/shops/#{t.shop.id}/transactions/#{t.id}"
+    assert_response :redirect
+    follow_redirect!
     assert_response :success
-  end
-
-  test "should get new" do
-    get transactions_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get transactions_create_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get transactions_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get transactions_update_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get transactions_destroy_url
-    assert_response :success
+    assert_select "td", { count: 0, text: "12345678910" }
+    assert_select "td", "10987654321"
   end
 end

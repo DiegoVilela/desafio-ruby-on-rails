@@ -4,8 +4,8 @@ one:
   kind: 1
   date: 2021-10-07
   value: 9.99
-  cpf: MyString
-  card: MyString
+  cpf: 12345678910
+  card: 5467****1324
   time: 2021-10-07 11:26:10
   shop: rosies_shop
 
@@ -13,7 +13,7 @@ two:
   kind: 1
   date: 2021-10-07
   value: 9.99
-  cpf: MyString
-  card: MyString
+  cpf: 10987654321
+  card: 4651***9753
   time: 2021-10-07 11:26:10
   shop: rosies_shop
