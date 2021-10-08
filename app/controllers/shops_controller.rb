@@ -1,3 +1,5 @@
+SUBTRACTION_TRANSACTION_TYPES = [2, 3, 9]
+
 class ShopsController < ApplicationController
   def index
     @shops = Shop.all
@@ -5,6 +7,14 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @balance = 0
+    @shop.transactions.each do |t|
+      if SUBTRACTION_TRANSACTION_TYPES.include? t.kind
+        @balance -= t.value
+      else
+        @balance += t.value
+      end
+    end
   end
 
   def new
@@ -52,13 +62,10 @@ class ShopsController < ApplicationController
       owner: l[48,14].strip,
       name: l[62,19].strip)
 
-    puts "Shop antes de salvar transaction!"
-    puts shop.inspect
-
     t = Transaction.new
     t.kind = kind
     t.date = Date.strptime(l[1, 8], '%Y%m%d')
-    t.value = l[9,10].to_i / 100
+    t.value = l[9,10].to_f / 100
     t.cpf = l[19,11]
     t.card = l[30,12]
     t.time = Time.strptime(l[42,6], "%H%M%S")
