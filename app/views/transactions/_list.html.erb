@@ -15,7 +15,7 @@
     <tr>
       <td><%= t.kind %></td>
       <td><%= t.date %></td>
-      <td><%= t.value %></td>
+      <td><%= number_to_currency(t.value, unit: 'R$') %></td>
       <td><%= t.cpf %></td>
       <td><%= t.card %></td>
       <td><%= t.time %></td>
