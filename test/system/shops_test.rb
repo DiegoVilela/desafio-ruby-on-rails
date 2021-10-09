@@ -17,4 +17,15 @@ class ShopsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Rosie's Shop"
     assert_selector "h2", text: "Rosie"
   end
+
+  test "editing a shop" do
+    s = shops(:rosies_shop)
+    visit "/shops/#{s.id}/edit"
+    assert_text "Rosie"
+
+    fill_in "Name", with: "John's Shop"
+    fill_in "Owner", with: "John"
+    click_button
+    assert_text "John"
+  end
 end

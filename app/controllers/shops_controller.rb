@@ -54,9 +54,6 @@ class ShopsController < ApplicationController
 
   def handle_line(l)
     kind = l[0,1]
-    if kind.blank?
-      return nil
-    end
 
     shop = Shop.find_or_create_by(
       owner: l[48,14].strip,
