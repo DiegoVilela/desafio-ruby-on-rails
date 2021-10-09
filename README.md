@@ -101,13 +101,16 @@ Sucesso!
 6. Execute a migração do banco de dados:
 - `bin/rails db:migrate`
 
-7. Execute os testes:
-- `bin/rails test:all`
+7. Execute os testes colentando sua cobertura:
+- `COVERAGE=1 bin/rails test`
 
-8. Inicialize o servidor local de desenvolvimento:
+8. (Opicional) Verifique a porcentagem de código coberto por testes:
+- em um terminal debian/ubuntu, execute: `xdg-open coverage/index.html`
+
+9. Inicialize o servidor local de desenvolvimento:
 - `bin/rails server`
 
-9. Acesse o sistema:
+10. Acesse o sistema:
 - Página inicial: http://localhost:3000/
 
-10. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/FINANCEIRO.txt`.
+11. Para testar a funcionalidade de upload, pode ser utilizado o arquivo `FINANCEIRO.txt` disponível em `/desafio-ruby-on-rails/FINANCEIRO.txt`.
